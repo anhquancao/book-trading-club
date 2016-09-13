@@ -1,5 +1,5 @@
 var express = require('express');
-require('dotenv').config();
+// require('dotenv').config();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
