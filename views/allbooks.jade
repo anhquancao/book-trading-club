@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .container
+        .row(style="margin-top:20px")
+            - each book in books
+                .col-sm-12(style='margin-bottom:20px')
+                    .media
+                        .media-left(style="border:black solid 1px")
+                            img.media-object(src=book.image_url, alt=book.name,style="width:120px")
+                        .media-body(style="padding-left:10px")
+                            h4.media-heading=book.name
+                            if (book.owner_id != user._id.toString())
+                                a.btn.btn-default(href='/request') Request trade
