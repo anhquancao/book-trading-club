@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-// var flash = require('connect-flash');
+var flash = require('connect-flash');
 require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'secret'}));
-// app.use(flash());
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
