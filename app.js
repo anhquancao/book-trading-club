@@ -1,5 +1,4 @@
 var express = require('express');
-// require('dotenv').config();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,7 +7,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var flash = require('connect-flash');
-
+require('dotenv').config();
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -16,7 +15,6 @@ require('./config/passport');
 
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
