@@ -10,8 +10,4 @@ block content
                             img.media-object(src=book.image_url, alt=book.name,style="width:120px")
                         .media-body(style="padding-left:10px")
                             h4.media-heading=book.name
-                            if (book.owner_id != user._id.toString())
-                                if (book.user_id == user._id.toString())
-                                    a.btn.btn-danger(href='/cancel-request/' + book._id) cancel
-                                else
-                                    a.btn.btn-default(href='/request/'+book._id) Request trade
+                            a.btn.btn-danger(href='/cancel-request/' + book._id) cancel

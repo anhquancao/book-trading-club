@@ -12,9 +12,17 @@ router.get('/', function (req, res) {
 router.route('/my-books')
     .get(authMiddleware.isLoggedIn, bookCtrl.myBook)
     .post(authMiddleware.isLoggedIn, bookCtrl.addBook);
-
+router.get('/request/:bookId',authMiddleware.isLoggedIn,bookCtrl.requestTrade);
+router.get('/cancel-request/:bookId',authMiddleware.isLoggedIn,bookCtrl.cancelTrade);
 router.route('/all-books')
     .get(authMiddleware.isLoggedIn, bookCtrl.allBooks);
+
+router.get('/accept/:bookId',authMiddleware.isLoggedIn,bookCtrl.confirm);
+
+router.route('/requesting-books')
+    .get(authMiddleware.isLoggedIn, bookCtrl.requestingBooks);
+router.route('/requested-books')
+    .get(authMiddleware.isLoggedIn, bookCtrl.requestingBooks);
 
 router.route('/sign-up')
     .get(authCtrl.signUp)

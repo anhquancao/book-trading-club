@@ -35,6 +35,8 @@ html(lang='en')
                 #bs-example-navbar-collapse-1.collapse.navbar-collapse
                     ul.nav.navbar-nav.navbar-right
                         if user
+                            li(class=currentPage == "requestingbooks" ? "active" : undefined)
+                                a(href='/requesting-books') Requesting books
                             li(class=currentPage == "allbooks" ? "active" : undefined)
                                 a(href='/all-books') All books
                             li(class=currentPage == "mybooks" ? "active" : undefined)
